@@ -3,15 +3,21 @@
 #include "typedefs.h"
 
 struct connection {
-        int fd;
-        struct {
-                byte *ptr;
-                usize len;
-        } read_buf;
-        struct {
-                byte *ptr;
-                usize len;
-        } write_buf;
+    int fd;
+    struct {
+        byte *buf;
+        usize parse_idx;
+        usize end;
+        usize capacity;
+    } read;
+    struct {
+        byte *buf;
+        usize start;
+        usize end;
+        usize capacity;
+    } write;
 };
+
+void drop_connection(struct connection *c);
 
 #endif

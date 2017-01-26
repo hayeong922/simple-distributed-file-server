@@ -10,5 +10,7 @@
 char const *system_error();
 void trace(char const *file, char const *function, int line, char const *format, ...);
 void println(char const *format, ...);
+void print(char const *format, ...);
+void panic(char const *format, ...);
 
 #endif
